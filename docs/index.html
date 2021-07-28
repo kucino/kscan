@@ -10,12 +10,13 @@
 *{color:#e3e9f2;overflow-wrap:break-word;}
 a{text-decoration-line:none;padding:0 2px}
 *{text-shadow:10px 10px 5px black;color:#e3e9f2}
-html{background:radial-gradient(circle at center,#071430 ,#020611);color:#e3e9f2;font-family:helvetica nueve, helvetica, robotica, ubuntu, roboto, sans-serif}input,button{border-radius:25px;background:black;text-align:center}
+html{background: radial-gradient(at top, #174, black);color:#e3e9f2;font-family:helvetica nueve, helvetica, robotica, ubuntu, roboto, sans-serif}
+input,button{border-radius:25px;background:black;text-align:center}
 button:hover{  box-shadow: 0 0px 10px 5px rgba(255,255,255,.2), 0px 0px 10px 5px rgba(255,255,255,0.1);transition: 0.2s}
 pre{overflow-x:auto;max-width:80%}
 .mainpanels{display:grid}
-.mainpanel{padding:15px;box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;margin:5%;border-radius: 15px;border:aqua 2px solid;grid-template-columns:auto;}
-hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-radius: 15px;border:#0f7 2px solid;}
+.mainpanel{padding:15px;box-shadow: rgba(0,255,127,0.2) 0px 0px 10px 10px;background: #090919;margin:5%;border-radius: 15px;border:#0f7 2px solid;grid-template-columns:auto;}
+hr{box-shadow: rgba(0,255,127,0.2) 0px 0px 10px 10px;background: #090919;border-radius: 15px;border:#0f7 2px solid;}
 td{padding: 0 8px;min-width: max-content;text-align: center}
 #dt{overflow-x: auto}
 .advert{background: linear-gradient(45deg, rgba(255,0,0,0.25), rgba(0,0,255,0.25));padding:15px}
@@ -247,8 +248,8 @@ td{padding: 0 8px;min-width: max-content;text-align: center}
 <script>
 window.addEventListener('load',function()
 {
-	if(window.ethereum&&Number(window.ethereum.chainId)==250){web3 = new Web3(web3.currentProvider);}
-	else{web3 = new Web3("https://rpc.ftm.tools")}
+	if(window.ethereum&&Number(window.ethereum.chainId)==321){web3 = new Web3(web3.currentProvider);}
+	else{web3 = new Web3("https://rpc-mainnet.kcc.network")}
 	basics();
 }, false);
 function $(_) {return document.getElementById(_);}
