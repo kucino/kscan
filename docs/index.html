@@ -170,6 +170,23 @@ td{padding: 0 8px;min-width: max-content;text-align: center}
 		<br><br>
 		<span id="sca"></span>
 	</div>
+	<div class="mainpanel et">
+		<h4>Old MTV Balances</h4>
+		<input id="ihbo" placeholder="Holder's Address"><br>
+		<input id="ihbh" placeholder="Block Height"><br>
+		<button onclick="fhb(ihbo.value,ihbb.value)"> ▶</button>
+		<br><br>
+		<span id="shb"></span>
+	</div>
+	<div class="mainpanel et">
+		<h4>Old Token Balances</h4>
+		<input id="ihtt" placeholder="Token's Address"><br>
+		<input id="ihto" placeholder="Holder's Address"><br>
+		<input id="ihtb" placeholder="Block Height"><br>
+		<button onclick="fht(ihtt.value,ihto.value,ihtb.value)"> ▶</button>
+		<br><br>
+		<span id="sht"></span>
+	</div>
 </div>
 <br>
 <br>
@@ -517,6 +534,19 @@ function fbf(h)
 async function fts(t)
 {
 	web3.eth.getTransactionReceipt(t).then(r=>$("sts").innerHTML=r==null?"Not found!":JSON.stringify(r).replaceAll(",","\n"))
+}
+function fhb(h,b)
+{
+	web3.eth.getBalance(h,b}).then(r=>$("shb").innerHTML=(Number(r)/1e18).toFixed(18)+" KCC")
+}
+async function fht(t,h,n)
+{
+	C=new web3.eth.Contract(ab1,t);
+	s="";d=0;b=0;
+	await C.methods.decimals().call((e,r)=>{d=r});
+	await C.methods.symbol().call({blockNumber:n},(e,r)=>{s=r});
+	await C.methods.balanceOf(h).call((e,r)=>{b=r})
+	$("sbt").innerHTML=(Number(b)/10**Number(d)).toFixed(d)+" "+s;
 }
 </script>
 </html>
